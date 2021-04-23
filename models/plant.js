@@ -135,6 +135,6 @@ const plantSchema = new mongoose.Schema(
   }
 );
 
-const Tree = mongoose.model("Tree", plantSchema);
+const Plant = mongoose.model("Plant", plantSchema);
 
-module.exports = Tree;
+module.exports = Plant;
