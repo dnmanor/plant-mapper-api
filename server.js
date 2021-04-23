@@ -1,6 +1,9 @@
 const express = require('express')
 const cors = require('cors')
 
+const plantRouter = require('./routers/plant')
+
+require('./db/db')
 
 const app = express()
 

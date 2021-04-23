@@ -12,11 +12,34 @@ const plantSchema = new mongoose.Schema(
       trim: true,
       required: true,
     },
-    family: {
+    category: {
       type: String,
       required: true,
       trim: true,
+      validate(value) {
+        const allowedCategory = [
+          "foilage-tree",
+          "flowering-tree",
+          "conifer",
+          "palm-like",
+          "palm",
+          "cacti",
+          "annual",
+          "foilage-shrub",
+          "flowering-shrub",
+          "house-plant",
+        ];
+        const isAllowed = allowedCategory.includes(value);
+        if (!isAllowed) {
+          throw new Error("Invalid Category");
+        }
+      }
     },
+    family: {
+        type: String,
+        required: true,
+        trim: true,
+      },
     form: {
       type: String,
       trim: true,
@@ -37,11 +60,11 @@ const plantSchema = new mongoose.Schema(
           "coarse",
           "scaly",
           "smooth",
-          "sand paper",
+          "sand-paper",
         ];
         const isAllowed = allowedTexture.includes(value);
         if (!isAllowed) {
-          throw new Error("Invalid Category");
+          throw new Error("Invalid Texture");
         }
       },
     },
