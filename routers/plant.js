@@ -33,3 +33,16 @@ router.get("/plants/:id", async (req, res) => {
       res.status(404).send();
     }
   });
+
+  //get all plants 
+router.get('/plants', async (req, res)=> {
+    try{
+        const plants = await Plant.find({})
+        res.status(200).send({plants})
+    }catch(error){
+        res.status(404).send()
+    }
+  
+  })
+
+  module.exports = router;
