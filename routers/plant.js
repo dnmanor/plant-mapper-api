@@ -23,7 +23,7 @@ router.post('/plants', auth, async (req, res)=>{
   })
 
   //get single plant with id
-router.get("/plants/:id", async (req, res) => {
+router.get("/plants/single/:id", async (req, res) => {
     const plantID = req.params.id;
   
     try {
