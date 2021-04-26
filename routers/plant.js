@@ -35,7 +35,7 @@ router.get("/plants/:id", async (req, res) => {
   });
 
   //get all plants 
-router.get('/plants', async (req, res)=> {
+router.get('/plants/all', async (req, res)=> {
     try{
         const plants = await Plant.find({})
         res.status(200).send({plants})
